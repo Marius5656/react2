@@ -1,6 +1,9 @@
 import React from "react";
 import "./portfolio.css";
 import kalkakmenis from "../../public/images./kalkakmenis.jpg";
+import karpenukarjieras from "../../public/images./karpenukarjieras.jpg";
+import karpenukarjieras2 from "../../public/images./karpenukarjieras2.jpg";
+import karpenukarjieras3 from "../../public/images./karpenukarjieras3.jpg";
 
 export default function Portfolio({ items = [] }) {
   return (
@@ -32,7 +35,8 @@ export default function Portfolio({ items = [] }) {
             </figure>
 
             <figure className="mineral-card">
-              <img src="/images/karpenukarjieras.jpg" alt="Klinčių karjeras" />
+              <img src={karpenukarjieras} alt="Klinčių karjeras" />
+
               <figcaption>
                 <h3>Klinčių karjeras</h3>
                 <p>
