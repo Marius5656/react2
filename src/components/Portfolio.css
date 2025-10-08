@@ -1,0 +1,32 @@
+.portfolio-section {
+  padding: 20px;
+}
+
+.portfolio-section h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.portfolio-section p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.mineral-card figcaption {
+  margin-top: 8px;
+  text-align: center;
+}

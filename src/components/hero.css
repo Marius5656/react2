@@ -1,0 +1,64 @@
+.btn {
+  border-radius: 32px;
+}
+.ink {
+  border-radius: 12px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.quarter {
+  flex: 1 1 100%; /* per visą eilę */
+  height: 500px;
+  position: relative;
+}
+
+.quarter img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* išlaiko proporcijas, apkarpo */
+  display: block;
+}
+
+.quarter .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+.portfolio {
+  padding: 20px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.gallery img {
+  width: 100%;
+  height: 200px; /* gali reguliuoti */
+  object-fit: cover; /* kad gražiai tilptų */
+  border-radius: 12px;
+}
+.quarter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* švelnus šešėlis virš paveikslo */
+  border-radius: 12px;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
