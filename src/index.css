@@ -66,3 +66,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-image: url("/images/fonas.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f0f0f0; /* tekstas matysis ant tamsaus fono */
+}
