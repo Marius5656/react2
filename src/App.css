@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+body {
+  background-image: url("/images/fonas.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
