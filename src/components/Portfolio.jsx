@@ -4,7 +4,7 @@ import kalkakmenis from "../../public/images./kalkakmenis.jpg";
 import karpenukarjieras from "../../public/images./karpenukarjieras.jpg";
 import karpenukarjieras2 from "../../public/images./karpenukarjieras2.jpg";
 
-export default function Portfolio() {
+export default function Portfolio({ items = [] }) {
   const items = [
     {
       title: "Kalkakmenis",

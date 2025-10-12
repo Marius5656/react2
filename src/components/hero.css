@@ -91,3 +91,21 @@
   font-weight: bold;
   cursor: pointer;
 }
+@media (max-width: 600px) {
+  .quarter {
+    height: 300px; /* sumažintas aukštis telefonams */
+  }
+
+  .overlay h1 {
+    font-size: 1.5rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
