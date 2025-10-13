@@ -3,7 +3,7 @@ import "./portfolio.css";
 import kalkakmenis from "../../public/images./kalkakmenis.jpg";
 import karpenukarjieras from "../../public/images./karpenukarjieras.jpg";
 import karpenukarjieras2 from "../../public/images./karpenukarjieras2.jpg";
-
+// turetu atidaryti fecinti duomenis is 4000 bekendo
 export default function Portfolio() {
   const items = [
     {
