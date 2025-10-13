@@ -4,28 +4,29 @@ import kalkakmenis from "../../public/images./kalkakmenis.jpg";
 import karpenukarjieras from "../../public/images./karpenukarjieras.jpg";
 import karpenukarjieras2 from "../../public/images./karpenukarjieras2.jpg";
 
-export default function Portfolio({ items = [] }) {
+export default function Portfolio() {
   const items = [
     {
       title: "Kalkakmenis",
       description:
         "Vienas svarbiausių klinčių karjero akmenų, naudotas statybose.",
-      image: "/images/kalkakmenis.jpg",
+      image: kalkakmenis,
     },
     {
       title: "Klinčių karjeras",
       description:
         "Istorinis karjeras, kuriame išgaunami ir šiandien naudojami mineralai.",
-      image: "/images/karpenukarjieras.jpg",
+      image: karpenukarjieras,
     },
     {
       title: "Dar viena nuotrauka",
       description: "Papildoma informacija apie karjerą ar mineralą.",
-      image: "/images/nuotrauka2.jpg",
+      image: karpenukarjieras2,
     },
   ];
 
   const [activeModal, setActiveModal] = useState(null);
+  const [ratings, setRatings] = useState({});
   return (
     <section className="portfolio-section">
       <h1>Mineralų galerija</h1>
@@ -46,8 +47,11 @@ export default function Portfolio({ items = [] }) {
             </figcaption>
 
             {activeModal === index && (
-              <div className="modal">
-                <div className="modal-content">
+              <div className="modal" onClick={() => setActiveModal(null)}>
+                <div
+                  className="modal-content"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <span className="close" onClick={() => setActiveModal(null)}>
                     &times;
                   </span>
