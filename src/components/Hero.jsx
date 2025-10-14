@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./hero.css";
 import karkarjieras from "../../public/images./karkarjieras.jpg";
+
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
+  const [likes, setLikes] = useSTATE(0);
+  const [dislikes, setDisliks] = useSTATE(0);
 
   return (
     <div className="container">
@@ -23,8 +26,19 @@ export default function Hero() {
             <span className="close" onClick={() => setShowModal(false)}>
               &times;
             </span>
-            <h2>Klinčių karjeras</h2>
-            <p>Čia gali rašyti visą tekstą apie karjerą.</p>
+
+            <div className="modal-body">
+              <div className="rating-panel">
+                <button onClick={() => setLikes(likes + 1)}>👍</button>
+                <p>{likes}</p>
+                <button onClick={() => setDislikes(dislikes + 1)}>👎</button>
+                <p>{dislikes}</p>
+              </div>
+              <div className="moda-text">
+                <h2>Klinčių karjeras</h2>
+                <p>Čia gali rašyti visą tekstą apie karjerą.</p>
+              </div>
+            </div>
           </div>
         </div>
       )}
