@@ -4,8 +4,8 @@ import karkarjieras from "../../public/images./karkarjieras.jpg";
 
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
-  const [likes, setLikes] = useSTATE(0);
-  const [dislikes, setDisliks] = useSTATE(0);
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDisliks] = useState(0);
 
   return (
     <div className="container">
