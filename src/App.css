@@ -49,3 +49,35 @@ body {
   background-size: cover;
   color: #f0f0f0;
 }
+.navbar {
+  display: flex;
+  gap: 0.5rem; /* mažesni tarpai tarp nuorodų */
+  padding: 0.25rem 0.5rem; /* mažesnis padding */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px; /* šiek tiek mažiau apvalūs kampai */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* mažesnis šešėlis */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem; /* mažesnis tarpas aplink nuorodą */
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #646cffaa;
+  color: white;
+}
+
+/* Papildomai, kad mobiliai ekranui tiktų */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
