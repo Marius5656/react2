@@ -5,30 +5,24 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Hero from "./components/Hero";
 import Portfolio from "./components/Portfolio";
+import Mineralai from "./components/MineralaiPage";
 
-function useFetchData(url = "http://localhost:4000/mineralai") {
+function useFetchData(url) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     fetch(url)
-      .then((resp) => resp.json())
+      .then((res) => res.json())
       .then((result) => setData(result))
-      .catch((error) => {
-        console.log(error);
-      })
-
-      .finally(() =>
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 5000)
-      );
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
   }, [url]);
 
   return {
     data,
-
+    setData,
     isLoading,
   };
 }
