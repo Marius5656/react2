@@ -1,4 +1,7 @@
-function Mineralai() {
+import { useState } from "react";
+import useFetchData from "../hooks/useFetchData"; // jei turi hooką atskirai, arba įdėk jo kodą čia
+
+export default function MineralaiPage() {
   const { data, isLoading, setData } = useFetchData(
     "http://localhost:4000/mineralai"
   );
@@ -22,18 +25,25 @@ function Mineralai() {
   };
 
   return (
-    <div>
+    <div className="mineralai-page">
+      <h2>Mineralų sąrašas</h2>
+
       {isLoading && <p>Kraunasi...</p>}
+
       {!isLoading && (
         <>
           <ul>
             {data.map((item) => (
               <li key={item.id}>
-                {item.title} - {item.description}
-                <button onClick={() => deleteMineral(item.id)}>Ištrinti</button>
+                {item.title} – {item.description}
+                <button onClick={() => deleteMineral(item.id)}>
+                  🗑 Ištrinti
+                </button>
               </li>
             ))}
           </ul>
+
+          <h3>Pridėti naują mineralą</h3>
           <input
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
@@ -44,7 +54,7 @@ function Mineralai() {
             onChange={(e) => setNewDesc(e.target.value)}
             placeholder="Aprašymas"
           />
-          <button onClick={addMineral}>Pridėti</button>
+          <button onClick={addMineral}>💎 Pridėti</button>
         </>
       )}
     </div>
