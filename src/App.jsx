@@ -40,24 +40,8 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Hero />} />
-
-        <Route
-          path="/mineralai"
-          element={
-            <div>
-              <h2>Gauti duomenys apie mineralus:</h2>
-              {isLoading && <p>Kraunasi duomenys...</p>}
-              {!isLoading && (
-                <ul>
-                  {data.map((item, index) => (
-                    <li key={index}>{JSON.stringify(item)}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          }
-        />
-
+        <Route path="/mineralai" element={<Mineralai />} />{" "}
+        {/* <-- naujas komponentas */}
         <Route path="/galerija" element={<Portfolio />} />
       </Routes>
     </Router>
