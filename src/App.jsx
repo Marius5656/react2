@@ -40,8 +40,8 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/mineralai" element={<Mineralai />} />{" "}
-        {/* <-- naujas komponentas */}
+        <Route path="/mineralai" element={<Mineralai />} />
+
         <Route path="/galerija" element={<Portfolio />} />
       </Routes>
     </Router>

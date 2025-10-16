@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useFetchData from "../hooks/useFetchData"; // jei turi hooką atskirai, arba įdėk jo kodą čia
+import "./MineralaiPage.css";
 
 export default function MineralaiPage() {
   const { data, isLoading, setData } = useFetchData(
