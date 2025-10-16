@@ -13,7 +13,7 @@ export default function MineralaiPage() {
     fetch("http://localhost:4000/mineralai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: newTitle, description: newDesc }),
+      body: JSON.stringify({ title: "Kalkakmenis", description: "Aprašymas" }),
     })
       .then((res) => res.json())
       .then((added) => setData([...data, added]));

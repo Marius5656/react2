@@ -1,50 +1,69 @@
 .portfolio-section {
-  padding: 20px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .portfolio-section h1 {
   text-align: center;
   margin-bottom: 10px;
+  color: #333;
+  font-size: 2rem;
 }
 
 .portfolio-section p {
   text-align: center;
-  margin-bottom: 20px;
-  color: #555;
+  margin-bottom: 30px;
+  color: #666;
+  font-size: 1.1rem;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.mineral-card {
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mineral-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .gallery img {
   width: 100%;
-  height: 200px;
+  height: auto;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
 }
 
 .mineral-card figcaption {
-  margin-top: 8px;
+  padding: 12px 16px;
   text-align: center;
 }
-.portfolio-section {
-  padding: 20px;
+
+.mineral-card h3 {
+  margin-bottom: 8px;
+  color: #222;
+  font-size: 1.2rem;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
+.mineral-card p {
+  color: #555;
+  font-size: 0.95rem;
 }
 
 /* Modal */
@@ -52,46 +71,75 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .modal-content {
-  background-color: #fff;
+  width: 350px; /* fiksuotas kvadratas */
+  height: 350px; /* fiksuotas kvadratas */
   padding: 20px;
-  border-radius: 12px;
-  max-width: 600px;
+  box-sizing: border-box; /* padding neplės modalo */
+  background-color: #fff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content img {
   width: 90%;
-  color: #000;
-  text-align: left;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .close {
-  float: right;
-  font-size: 28px;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
   font-weight: bold;
+  color: #333;
   cursor: pointer;
 }
-@media (max-width: 600px) {
-  .quarter {
-    height: 300px; /* sumažintas aukštis telefonams */
+
+.close:hover {
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
   }
 
-  .overlay h1 {
-    font-size: 1.5rem;
+  .portfolio-section h1 {
+    font-size: 1.6rem;
   }
 
-  .overlay p {
+  .portfolio-section p {
     font-size: 1rem;
   }
 
-  .btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+  .modal-content {
+    width: 280px;
+    height: 280px;
   }
 }
