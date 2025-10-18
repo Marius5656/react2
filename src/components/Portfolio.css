@@ -95,12 +95,13 @@
   align-items: center;
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.2s ease; /* tik šešėlis animuojamas */
+  transition: box-shadow 0.3s ease, filter 0.3s ease; /* tik šešėlis animuojamas */
 }
 
 /* Hover efektas tik shadow, ne scale */
 .modal-content:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.05);
 }
 
 /* Modal viduje esantis paveikslėlis */

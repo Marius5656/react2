@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./portfolio.css";
-const kalkakmenis = "/images./kalkakmenis.jpg";
+import kalkakmenis from "/images./kalkakmenis.jpg";
 import karpenukarjieras from "../../public/images./karpenukarjieras.jpg";
 import karpenukarjieras2 from "../../public/images./karpenukarjieras2.jpg";
 import MineralaiRatings from "./MineralaiRatings";
@@ -59,7 +59,7 @@ export default function Portfolio() {
                   <h2>{item.title}</h2>
                   <p>{item.description}</p>
                   <p>Čia gali būti papildomas tekstas apie {item.title}.</p>
-                  <MineralaiRatings mineralId={index} />
+                  <MineralaiRatings minerlid={index} />
                 </div>
               </div>
             )}
