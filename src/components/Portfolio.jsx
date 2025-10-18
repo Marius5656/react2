@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./portfolio.css";
-import kalkakmenis from "../../public/images./kalkakmenis.jpg";
+const kalkakmenis = "/images./kalkakmenis.jpg";
 import karpenukarjieras from "../../public/images./karpenukarjieras.jpg";
 import karpenukarjieras2 from "../../public/images./karpenukarjieras2.jpg";
+import MineralaiRatings from "./MineralaiRatings";
 // turetu atidaryti fecinti duomenis is 4000 bekendo
 export default function Portfolio() {
   const items = [
@@ -58,6 +59,7 @@ export default function Portfolio() {
                   <h2>{item.title}</h2>
                   <p>{item.description}</p>
                   <p>Čia gali būti papildomas tekstas apie {item.title}.</p>
+                  <MineralaiRatings mineralId={index} />
                 </div>
               </div>
             )}
