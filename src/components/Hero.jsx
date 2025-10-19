@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./hero.css";
-import karkarjieras from "../../public/images./karkarjieras.jpg";
+import karkarjieras from "../../public/images/karkarjieras.jpg";
 
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
