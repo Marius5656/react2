@@ -8,7 +8,7 @@ export default function Portfolio() {
       title: "Kalkakmenis",
       description:
         "Vienas svarbiausių klinčių karjero akmenų, naudotas statybose.",
-      image: "/images/kalkakmenis.jpg", // public/images katalogas
+      image: "/images/kalkakmenis.jpg", // naudojame tik URL iš public
     },
     {
       title: "Klinčių karjeras",
@@ -45,15 +45,17 @@ export default function Portfolio() {
               <p>{item.description}</p>
             </figcaption>
 
+            {/* Modal langas */}
             {activeModal === index && (
               <div className="modal" onClick={() => setActiveModal(null)}>
                 <div
                   className="modal-content"
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => e.stopPropagation()} // stabdo modal click propagation
                 >
                   <span className="close" onClick={() => setActiveModal(null)}>
                     &times;
                   </span>
+
                   <h2>{item.title}</h2>
                   <p>{item.description}</p>
                   <p>Čia gali būti papildomas tekstas apie {item.title}.</p>
