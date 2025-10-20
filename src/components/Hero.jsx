@@ -31,12 +31,30 @@ export default function Hero() {
               <div className="rating-panel">
                 <button onClick={() => setLikes(likes + 1)}>👍</button>
                 <p>{likes}</p>
-                <button onClick={() => setDislikes(dislikes + 1)}>👎</button>
+                <button onClick={() => setDisliks(dislikes + 1)}>👎</button>
                 <p>{dislikes}</p>
               </div>
               <div className="moda-text">
                 <h2>Klinčių karjeras</h2>
-                <p>Čia gali rašyti visą tekstą apie karjerą.</p>
+                <p>
+                  Kárpėnų klintiẽs telkinỹs, eksploatuojamas klinties telkinys
+                  Akmenės rajono savivaldybės teritorijoje, 1,5 km į rytus nuo
+                  Naujosios Akmenės, Karpėnų kaime. Prognoziniai ištekliai 90
+                  mln. t, bendrieji – daugiau kaip 187 mln. t. (1990). Kasama
+                  permo sistemos viršutinio skyriaus klintis. Klinčių klodas
+                  susiformavo prieš 270–250 mln. metų. Klodo storis 3,4–22,4 m
+                  (vidutinis storis 13,7 metro). Naudingąjį sluoksnį sudaro
+                  smulkių kalcito kristalų pilkos spalvos klintis su
+                  organogeninės ir granuliuotos klinties lęšių bei gniutulų
+                  tarpsluoksniais. Slūgso po 1,3–9,3 m storio pleistoceno
+                  moreninio priemolio ir priesmėlio danga. Naudingųjų iškasenų
+                  klodo cheminė sudėtis (%): CaCO3 – 88,07–95,03, MgCO3 –
+                  0,44–3,57, netirpiosios liekanos – 1,11–6,07. Kasama atviruoju
+                  būdu. Karpėnų klinčių karjero plotas apie 800 ha (didžiausiais
+                  Lietuvoje). Klinčių sluoksniai smulkinami (sprogdinimo darbus
+                  vykdo bendrovė Detonas). Dirba milžiniški žingsniuojantys
+                  (svoris apie 720 t) ir krovos ekskavatoriai.
+                </p>
               </div>
             </div>
           </div>
