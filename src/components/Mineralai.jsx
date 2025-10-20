@@ -7,47 +7,38 @@ export default function Mineralai() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
 
-  // 🔹 Gauti mineralų sąrašą
+  // Nuskaityti mineralus iš backend
   useEffect(() => {
     fetch("http://localhost:4000/mineralai")
       .then((res) => res.json())
-      .then((data) => setMineralai(data))
-      .catch((err) => setError("Nepavyko gauti mineralų: " + err.message));
+      .then(setMineralai)
+      .catch((err) => console.error("Nepavyko gauti mineralų:", err));
   }, []);
 
-  // 🔹 Įkelti naują mineralą
+  // Įkelti naują mineralą su nuotrauka
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("description", description);
+    if (image) formData.append("image", image);
 
     try {
-      const formData = new FormData();
-      formData.append("title", title);
-      formData.append("description", description);
-      if (image) formData.append("image", image);
-
       const res = await fetch("http://localhost:4000/mineralai", {
         method: "POST",
         body: formData,
       });
+      const data = await res.json();
+      setMineralai([...mineralai, data]);
 
-      if (!res.ok) throw new Error("Serverio klaida įkeliant mineralą");
-
-      const newMineralas = await res.json();
-
-      // 👇 Pritaikyta Mongo/SQL atvejui (id arba _id)
-      setMineralai((prev) => [...prev, newMineralas]);
-
+      // Išvalyti formą
       setTitle("");
       setDescription("");
       setImage(null);
-      setSuccess("Mineralas sėkmingai pridėtas!");
     } catch (err) {
-      setError(err.message);
+      console.error("Nepavyko įkelti mineralo:", err);
     }
   };
 
@@ -78,13 +69,9 @@ export default function Mineralai() {
         <button type="submit">Pridėti mineralą</button>
       </form>
 
-      {error && <p className="error-msg">{error}</p>}
-      {success && <p className="success-msg">{success}</p>}
-
       <div className="mineralai-gallery">
-        {mineralai.length === 0 && <p>Nėra įkeltų mineralų.</p>}
         {mineralai.map((m) => (
-          <div key={m.id || m._id} className="mineralas-card">
+          <div key={m.id} className="mineralas-card">
             {m.image && (
               <img
                 src={`http://localhost:4000${m.image}`}
@@ -94,7 +81,7 @@ export default function Mineralai() {
             )}
             <h3>{m.title}</h3>
             <p>{m.description}</p>
-            <MineralaiRatings minerlid={m.id || m._id} />
+            <MineralaiRatings minerlid={m.id} />
           </div>
         ))}
       </div>
