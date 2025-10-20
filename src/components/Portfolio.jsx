@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./portfolio.css";
 import MineralaiRatings from "./MineralaiRatings";
-import Mineralai from "./Mineralai";
 
 export default function Portfolio() {
   const items = [
@@ -24,31 +23,23 @@ export default function Portfolio() {
     },
   ];
 
-  const [ratings, setRatings] = useState({});
-
   return (
-    <>
-      <section className="portfolio-section">
-        <h1>Mineralų galerija</h1>
-        <p>Keletas nuotraukų ir istorijos fragmentų iš klinčių karjero</p>
+    <section className="portfolio-section">
+      <h1>Mineralų galerija</h1>
+      <p>Keletas nuotraukų ir istorijos fragmentų iš klinčių karjero</p>
 
-        <div className="gallery">
-          {items.map((item, index) => (
-            <figure key={index} className="mineral-card">
-              <img src={item.image} alt={item.title} />
-              <figcaption>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                {/* Įvertinimas žvaigždutėmis */}
-                <MineralaiRatings minerlid={index} />
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      {/* Mineralų skiltis po galerija */}
-      <Mineralai />
-    </>
+      <div className="gallery">
+        {items.map((item, index) => (
+          <figure key={index} className="mineral-card">
+            <img src={item.image} alt={item.title} />
+            <figcaption>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <MineralaiRatings minerlid={index} />
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
   );
 }
