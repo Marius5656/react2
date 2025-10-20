@@ -82,6 +82,27 @@ export default function Mineralai() {
             <h3>{m.title}</h3>
             <p>{m.description}</p>
             <MineralaiRatings minerlid={m.id} />
+            {/* istrnti mineralus */}
+            <button
+              className="delete-btn"
+              onClick={async () => {
+                if (!window.confirm(`Ar tikrai norite ištrinti ${m.title}?`))
+                  return;
+
+                try {
+                  await fetch(`http://localhost:4000/mineralai/${m.id}`, {
+                    method: "DELETE",
+                  });
+                  setMineralai(
+                    mineralai.filter((mineral) => mineral.id !== m.id)
+                  );
+                } catch (err) {
+                  console.error("Nepavyko ištrinti mineralo:", err);
+                }
+              }}
+            >
+              Ištrinti
+            </button>
           </div>
         ))}
       </div>
