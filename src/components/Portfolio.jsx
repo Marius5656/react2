@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./portfolio.css";
 import MineralaiRatings from "./MineralaiRatings";
+import Mineralai from "./Mineralai";
 
 export default function Portfolio() {
   const items = [
@@ -8,7 +9,7 @@ export default function Portfolio() {
       title: "Kalkakmenis",
       description:
         "Vienas svarbiausių klinčių karjero akmenų, naudotas statybose.",
-      image: "/images/kalkakmenis.jpg", // naudojame tik URL iš public
+      image: "/images/kalkakmenis.jpg",
     },
     {
       title: "Klinčių karjeras",
@@ -23,49 +24,31 @@ export default function Portfolio() {
     },
   ];
 
-  const [activeModal, setActiveModal] = useState(null);
   const [ratings, setRatings] = useState({});
 
   return (
-    <section className="portfolio-section">
-      <h1>Mineralų galerija</h1>
-      <p>Keletas nuotraukų ir istorijos fragmentų iš klinčių karjero</p>
+    <>
+      <section className="portfolio-section">
+        <h1>Mineralų galerija</h1>
+        <p>Keletas nuotraukų ir istorijos fragmentų iš klinčių karjero</p>
 
-      <div className="gallery">
-        {items.map((item, index) => (
-          <figure key={index} className="mineral-card">
-            <img
-              src={item.image}
-              alt={item.title}
-              onClick={() => setActiveModal(index)}
-              style={{ cursor: "pointer" }}
-            />
-            <figcaption>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </figcaption>
+        <div className="gallery">
+          {items.map((item, index) => (
+            <figure key={index} className="mineral-card">
+              <img src={item.image} alt={item.title} />
+              <figcaption>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                {/* Įvertinimas žvaigždutėmis */}
+                <MineralaiRatings minerlid={index} />
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
 
-            {/* Modal langas */}
-            {activeModal === index && (
-              <div className="modal" onClick={() => setActiveModal(null)}>
-                <div
-                  className="modal-content"
-                  onClick={(e) => e.stopPropagation()} // stabdo modal click propagation
-                >
-                  <span className="close" onClick={() => setActiveModal(null)}>
-                    &times;
-                  </span>
-
-                  <h2>{item.title}</h2>
-                  <p>{item.description}</p>
-                  <p>Čia gali būti papildomas tekstas apie {item.title}.</p>
-                  <MineralaiRatings minerlid={index} />
-                </div>
-              </div>
-            )}
-          </figure>
-        ))}
-      </div>
-    </section>
+      {/* Mineralų skiltis po galerija */}
+      <Mineralai />
+    </>
   );
 }

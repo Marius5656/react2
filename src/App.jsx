@@ -5,7 +5,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Hero from "./components/Hero";
 import Portfolio from "./components/Portfolio";
-import Mineralai from "./components/MineralaiPage";
+import MineralaiPage from "./components/MineralaiPage";
+import Mineralai from "./components/Mineralai";
 
 function useFetchData(url) {
   const [data, setData] = useState([]);
